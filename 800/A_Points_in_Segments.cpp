@@ -37,29 +37,33 @@ int32_t main()
 {
     fast;
 
-    int n;
-    cin >> n;
-    int arr[n];
+    ll n, m;
+    cin >> n >> m;
+    ump mp;
     FOR(i, n)
     {
-        cin >> arr[i];
-    }
-    ll sum = 0;
-    FOR(i, n)
-    {
-        sum += arr[i];
-    }
-    FOR(i, n)
-    {
-        FOR(j, n)
+        ll l, r;
+        cin >> l >> r;
+        for (int i = l; i <= r; i++)
         {
-            if (arr[i] + arr[j] == sum / (n / 2))
-            {
-                cout << i + 1 << " " << j + 1 << endl;
-                arr[i] = 0;
-                arr[j] = 0;
-            }
+            mp[i]++;
         }
+    }
+    ll cnt = 0;
+    vll ans;
+    FOR(i, m + 1)
+    {
+        if (i && mp.find(i) == mp.end())
+        {
+            cnt++;
+            ans.pb(i);
+        }
+    }
+    cout << cnt << endl;
+    if (cnt)
+    {
+        FOR(i, ans.size())
+        cout << ans[i] << " ";
     }
 
     return 0;

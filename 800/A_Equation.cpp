@@ -33,34 +33,35 @@ typedef vector<vll> vvll;
 typedef vector<string> vs;
 typedef unordered_map<ll, ll> ump;
 
+bool isComposite(ll n)
+{
+    for (int i = 2; i * i <= n; i++)
+    {
+        if (n % i == 0)
+        {
+            return 1;
+        }
+    }
+    return 0;
+}
 int32_t main()
 {
     fast;
 
-    int n;
+    ll n;
     cin >> n;
-    int arr[n];
-    FOR(i, n)
+    if (n == 1)
     {
-        cin >> arr[i];
+        cout << 9 << " " << 8 << endl;
+        return 0;
     }
-    ll sum = 0;
-    FOR(i, n)
+    for (ll i = 2; i <= 100000000; i++)
     {
-        sum += arr[i];
-    }
-    FOR(i, n)
-    {
-        FOR(j, n)
+        if (isComposite(i * i) && isComposite(n + (i * i)))
         {
-            if (arr[i] + arr[j] == sum / (n / 2))
-            {
-                cout << i + 1 << " " << j + 1 << endl;
-                arr[i] = 0;
-                arr[j] = 0;
-            }
+            cout << n + (i * i) << " " << i * i;
+            return 0;
         }
     }
-
     return 0;
 }

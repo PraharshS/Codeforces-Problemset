@@ -37,30 +37,24 @@ int32_t main()
 {
     fast;
 
-    int n;
-    cin >> n;
-    int arr[n];
-    FOR(i, n)
+    ll a, b, c;
+    cin >> a >> b >> c;
+    while (b - a != 1 || c - b != 1)
     {
-        cin >> arr[i];
-    }
-    ll sum = 0;
-    FOR(i, n)
-    {
-        sum += arr[i];
-    }
-    FOR(i, n)
-    {
-        FOR(j, n)
+        if (b >= c)
         {
-            if (arr[i] + arr[j] == sum / (n / 2))
-            {
-                cout << i + 1 << " " << j + 1 << endl;
-                arr[i] = 0;
-                arr[j] = 0;
-            }
+            b--;
+        }
+        else if (a >= b)
+        {
+            a--;
+        }
+        else
+        {
+            c--;
         }
     }
+    cout << a + b + c;
 
     return 0;
 }

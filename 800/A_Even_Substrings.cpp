@@ -33,34 +33,23 @@ typedef vector<vll> vvll;
 typedef vector<string> vs;
 typedef unordered_map<ll, ll> ump;
 
+bool isEven(string s)
+{
+    return stoi(s) % 2 == 0;
+}
 int32_t main()
 {
     fast;
-
-    int n;
+    ll n;
     cin >> n;
-    int arr[n];
-    FOR(i, n)
-    {
-        cin >> arr[i];
-    }
-    ll sum = 0;
-    FOR(i, n)
-    {
-        sum += arr[i];
-    }
-    FOR(i, n)
-    {
-        FOR(j, n)
-        {
-            if (arr[i] + arr[j] == sum / (n / 2))
-            {
-                cout << i + 1 << " " << j + 1 << endl;
-                arr[i] = 0;
-                arr[j] = 0;
-            }
-        }
-    }
+    string s;
+    cin >> s;
+    ll cnt = 0;
+    for (int i = 0; i < n; i++)
+        if ((s[i] - '0') % 2 == 0)
+            cnt += (i + 1);
+
+    cout << cnt << endl;
 
     return 0;
 }

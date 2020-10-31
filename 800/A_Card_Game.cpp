@@ -33,34 +33,31 @@ typedef vector<vll> vvll;
 typedef vector<string> vs;
 typedef unordered_map<ll, ll> ump;
 
+void solve()
+{
+    ll n, k1, k2;
+    cin >> n >> k1 >> k2;
+    ll a[k1], b[k2];
+    FOR(i, k1)
+    {
+        cin >> a[i];
+    }
+    FOR(i, k2)
+    {
+        cin >> b[i];
+    }
+    sort(a, a + k1);
+    sort(b, b + k2);
+    cout << (a[k1 - 1] > b[k2 - 1] ? "YES" : "NO") << endl;
+}
 int32_t main()
 {
     fast;
-
-    int n;
-    cin >> n;
-    int arr[n];
-    FOR(i, n)
+    int t;
+    cin >> t;
+    while (t--)
     {
-        cin >> arr[i];
+        solve();
     }
-    ll sum = 0;
-    FOR(i, n)
-    {
-        sum += arr[i];
-    }
-    FOR(i, n)
-    {
-        FOR(j, n)
-        {
-            if (arr[i] + arr[j] == sum / (n / 2))
-            {
-                cout << i + 1 << " " << j + 1 << endl;
-                arr[i] = 0;
-                arr[j] = 0;
-            }
-        }
-    }
-
     return 0;
 }

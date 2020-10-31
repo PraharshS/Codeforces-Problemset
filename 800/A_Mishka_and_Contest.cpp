@@ -36,31 +36,32 @@ typedef unordered_map<ll, ll> ump;
 int32_t main()
 {
     fast;
-
-    int n;
-    cin >> n;
+    int n, k;
+    cin >> n >> k;
     int arr[n];
     FOR(i, n)
     {
         cin >> arr[i];
     }
-    ll sum = 0;
-    FOR(i, n)
+    int left = 0, right = n - 1;
+    int cnt = 0;
+    while (left <= right)
     {
-        sum += arr[i];
-    }
-    FOR(i, n)
-    {
-        FOR(j, n)
+        if (arr[left] <= k)
         {
-            if (arr[i] + arr[j] == sum / (n / 2))
-            {
-                cout << i + 1 << " " << j + 1 << endl;
-                arr[i] = 0;
-                arr[j] = 0;
-            }
+            left++;
+            cnt++;
+        }
+        else if (arr[right] <= k)
+        {
+            right--;
+            cnt++;
+        }
+        else
+        {
+            break;
         }
     }
-
+    cout << cnt;
     return 0;
 }
