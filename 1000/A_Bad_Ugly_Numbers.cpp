@@ -33,12 +33,34 @@ typedef vector<vll> vvll;
 typedef vector<string> vs;
 typedef unordered_map<ll, ll> ump;
 
+bool isPrime(ll n)
+{
+    for (ll i = 2; i * i <= n; i++)
+    {
+        if (n % i == 0)
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
 void solve()
 {
-    ll a, b;
-    cin >> a >> b;
-    cout << ((a ^ (a & b)) + (b ^ (a & b))) << endl;
-    
+    ll n;
+    cin >> n;
+
+    if (n == 1)
+    {
+        cout << -1 << endl;
+        return;
+    }
+    cout << 2;
+    FOR(i, n - 1)
+    {
+        cout << 3;
+    }
+    cout << endl;
 }
 int32_t main()
 {

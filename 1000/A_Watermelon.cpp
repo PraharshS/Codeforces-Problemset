@@ -33,21 +33,26 @@ typedef vector<vll> vvll;
 typedef vector<string> vs;
 typedef unordered_map<ll, ll> ump;
 
-void solve()
-{
-    ll a, b;
-    cin >> a >> b;
-    cout << ((a ^ (a & b)) + (b ^ (a & b))) << endl;
-    
-}
 int32_t main()
 {
     fast;
-    int t;
-    cin >> t;
-    while (t--)
+
+    int n;
+    cin >> n;
+    // if n is even
+    if (n == 2)
     {
-        solve();
+        cout << "NO";
     }
+    else if (n % 2 == 0)
+    {
+        cout << "YES";
+    }
+    // n is odd
+    else
+    {
+        cout << "NO";
+    }
+
     return 0;
 }

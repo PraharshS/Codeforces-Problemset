@@ -35,10 +35,20 @@ typedef unordered_map<ll, ll> ump;
 
 void solve()
 {
-    ll a, b;
-    cin >> a >> b;
-    cout << ((a ^ (a & b)) + (b ^ (a & b))) << endl;
-    
+    ll a, b, n, S;
+    cin >> a >> b >> n >> S;
+    if (S % n > b)
+    {
+        cout << "NO\n";
+    }
+    else if (a * n + b >= S)
+    {
+        cout << "YES\n";
+    }
+    else
+    {
+        cout << "NO\n";
+    }
 }
 int32_t main()
 {

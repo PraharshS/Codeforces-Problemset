@@ -35,10 +35,24 @@ typedef unordered_map<ll, ll> ump;
 
 void solve()
 {
-    ll a, b;
-    cin >> a >> b;
-    cout << ((a ^ (a & b)) + (b ^ (a & b))) << endl;
-    
+    int n;
+    cin >> n;
+    int arr[n];
+    FOR(i, n)
+    {
+        cin >> arr[i];
+    }
+    sort(arr, arr + n);
+
+    ll cnt = 1;
+    FOR(i, n)
+    {
+        if (i + 1 >= arr[i])
+        {
+            cnt = max(cnt, i + 2);
+        }
+    }
+    cout << cnt << endl;
 }
 int32_t main()
 {
